@@ -1,0 +1,6 @@
+[submodule "Ace-Books-Frontend"]
+	path = Ace-Books-Frontend
+	url = git@github.com:AstroCorp/Ace-Books-Frontend.git
+[submodule "Ace-Books-Backend"]
+	path = Ace-Books-Backend
+	url = git@github.com:AstroCorp/Ace-Books-Backend.git

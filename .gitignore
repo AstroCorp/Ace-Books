@@ -6,3 +6,7 @@
 # Local env files
 .env
 .env.*
+
+# Project files
+Ace-Books-Frontend
+Ace-Books-Backend

@@ -4,6 +4,16 @@ ENV_FILE="./.env"
 FRONTEND_DIR="./Ace-Books-Frontend"
 BACKEND_DIR="./Ace-Books-Backend"
 
+# Si no existe el directorio del frontend, clonar el repositorio
+if [ ! -d "$FRONTEND_DIR" ]; then
+    git clone git@github.com:AstroCorp/Ace-Books-Frontend.git
+fi
+
+# Si no existe el directorio del backend, clonar el repositorio
+if [ ! -d "$BACKEND_DIR" ]; then
+    git clone git@github.com:AstroCorp/Ace-Books-Backend.git
+fi
+
 # Comprobar si el archivo .env existe
 if [ -f "$ENV_FILE" ]; then
     read -p "The .env file already exists. Do you want to replace it? (y/N): " REPLACE

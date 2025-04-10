@@ -9,7 +9,6 @@ services:
       - .env
     volumes:
       - ./Ace-Books-Frontend:/app
-      - node_modules_frontend_data:/app/node_modules
     networks:
       - main
 
@@ -26,7 +25,6 @@ services:
       - redis
     volumes:
       - ./Ace-Books-Backend:/app
-      - node_modules_backend_data:/app/node_modules
     networks:
       - main
 
@@ -64,14 +62,27 @@ services:
     networks:
       - main
 
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "9001:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+      - ./docker/pgadmin/servers.json:/pgadmin4/servers.json
+    depends_on:
+      - postgres
+    networks:
+      - main
+
 networks:
   main:
     driver: bridge
 
 volumes:
-  node_modules_frontend_data:
-    driver: "local"
-  node_modules_backend_data:
-    driver: "local"
   postgres_data:
+    driver: "local"
+  pgadmin_data:
     driver: "local"

@@ -35,10 +35,11 @@ services:
     environment:
       POSTGRES_USER: ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_DATABASES: ${DATABASE_NAME},${DATABASE_NAME}_test
       POSTGRES_PORT: ${DATABASE_PORT}
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./Ace-Books-Backend/docker/postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     networks:
       - main
 
@@ -58,7 +59,7 @@ services:
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
     volumes:
       - pgadmin_data:/var/lib/pgadmin
-      - ./docker/pgadmin/servers.json:/pgadmin4/servers.json
+      - ./Ace-Books-Backend/docker/pgadmin/servers.json:/pgadmin4/servers.json
     depends_on:
       - postgres
     networks:

@@ -28,7 +28,7 @@ generate_env_file() {
 # Si no existe el directorio del frontend, clonar el repositorio
 if [ ! -d "$FRONTEND_DIR" ]; then
     git clone git@github.com:AstroCorp/Ace-Books-Frontend.git
-    
+
     echo -e "${COLOR_GREEN}Frontend repository cloned.${COLOR_DEFAULT}"
 else
     echo -e "${COLOR_YELLOW}The frontend directory already exists.${COLOR_DEFAULT}"
@@ -69,7 +69,7 @@ if [ ! -f "$FRONTEND_DIR/.env" ]; then
     fi
 
     # Creamos el enlace simbólico tenido en cuenta el sistema operativo
-    if [[ "$OSTYPE" == "msys" ]]; then
+    if [ "$OSTYPE" = "msys" ]; then
         cmd //c "cd %CD%\\Ace-Books-Frontend && mklink /H .env ..\.env"
     else
         cd ./Ace-Books-Frontend && ln -s "../.env" ".env"
@@ -87,10 +87,10 @@ if [ ! -f "$BACKEND_DIR/.env" ]; then
     fi
 
     # Creamos el enlace simbólico tenido en cuenta el sistema operativo
-    if [[ "$OSTYPE" == "msys" ]]; then
+    if [ "$OSTYPE" = "msys" ]; then
         cmd //c "cd %CD%\\Ace-Books-Backend && mklink /H .env ..\.env"
     else
-        cd ../Ace-Books-Backend && ln -s "../.env" ".env"
+        cd ./Ace-Books-Backend && ln -s "../.env" ".env"
     fi
 
     echo -e "${COLOR_GREEN}Symbolic link created in $BACKEND_DIR${COLOR_DEFAULT}"

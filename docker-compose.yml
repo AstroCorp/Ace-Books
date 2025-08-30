@@ -7,6 +7,8 @@ services:
       - "3000:3000"
     env_file:
       - .env
+    depends_on:
+      - backend
     volumes:
       - ./Ace-Books-Frontend:/app
     networks:
@@ -23,6 +25,7 @@ services:
     depends_on:
       - postgres
       - redis
+      - mailpit
     volumes:
       - ./Ace-Books-Backend:/app
     networks:
@@ -62,6 +65,19 @@ services:
       - ./Ace-Books-Backend/docker/pgadmin/servers.json:/pgadmin4/servers.json
     depends_on:
       - postgres
+    networks:
+      - main
+
+  mailpit:
+    image: axllent/mailpit
+    ports:
+        - 8025:8025
+        - 1025:1025
+    environment:
+        MP_MAX_MESSAGES: 5000
+        MP_DATABASE: /data/mailpit.db
+        MP_SMTP_AUTH: ${MAIL_USERNAME}:${MAIL_PASSWORD}
+        MP_SMTP_AUTH_ALLOW_INSECURE: 1
     networks:
       - main
 

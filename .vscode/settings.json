@@ -1,18 +1,34 @@
 {
-    "search.useIgnoreFiles": false,
-    "search.useGlobalIgnoreFiles": false,
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/dist": true,
-        "**/.nuxt": true,
-        "**/build": true,
-        "**/.output": true
-    },
-    "editor.insertSpaces": false,
-    "editor.tabSize": 4,
-    "files.insertFinalNewline": true,
-    "files.encoding": "utf8",
-    "files.eol": "\n",
-    "files.trimTrailingWhitespace": true,
-    "editor.detectIndentation": false
+	"search.useIgnoreFiles": false,
+	"search.useGlobalIgnoreFiles": false,
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/dist": true,
+		"**/.nuxt": true,
+		"**/build": true,
+		"**/.output": true
+	},
+	"editor.insertSpaces": false,
+	"editor.tabSize": 4,
+	"files.insertFinalNewline": true,
+	"files.encoding": "utf8",
+	"files.eol": "\n",
+	"files.trimTrailingWhitespace": true,
+	"editor.detectIndentation": false,
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"editor.quickSuggestions": {
+		"strings": "on"
+	},
+	"tailwindCSS.classAttributes": [
+		"class",
+		"ui"
+	],
+	"tailwindCSS.experimental.classRegex": [
+		[
+			"ui:\\s*{([^)]*)\\s*}",
+			"(?:'|\"|`)([^']*)(?:'|\"|`)"
+		]
+	]
 }

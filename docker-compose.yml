@@ -41,7 +41,7 @@ services:
       POSTGRES_DATABASES: ${DATABASE_NAME},${DATABASE_NAME}_test
       POSTGRES_PORT: ${DATABASE_PORT}
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
       - ./Ace-Books-Backend/docker/postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     networks:
       - main

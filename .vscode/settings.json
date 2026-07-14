@@ -21,8 +21,15 @@
 	"editor.quickSuggestions": {
 		"strings": "on"
 	},
+	"tailwindCSS.experimental.configFile": {
+		"Ace-Books-Frontend/src/app/assets/css/main.css": "Ace-Books-Frontend/**"
+	},
 	"tailwindCSS.classAttributes": [
 		"class",
+		":class",
+		"className",
+		"ngClass",
+		"class:list",
 		"ui"
 	],
 	"tailwindCSS.experimental.classRegex": [

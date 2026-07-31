@@ -28,6 +28,7 @@ services:
       - mailpit
     volumes:
       - ./Ace-Books-Backend:/app
+      - storage_data:/app/storage
     networks:
       - main
 
@@ -89,4 +90,6 @@ volumes:
   postgres_data:
     driver: "local"
   pgadmin_data:
+    driver: "local"
+  storage_data:
     driver: "local"
